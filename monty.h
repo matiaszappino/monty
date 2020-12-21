@@ -68,7 +68,8 @@ void div_function(stack_t **stack, unsigned int line_number);
 void mul_function(stack_t **stack, unsigned int line_number);
 
 void stack_init(stack_t **head);
-
+void free_memory(stack_t **stack);
+int check_number(char *token_two, unsigned int line_number);
 int _atoi(char *s);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);

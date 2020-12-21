@@ -1,4 +1,5 @@
 #include "monty.h"
+stainst_t stainst;
 /**
  * _atoi - transform a char in an integer
  * @s: string to convert in integers
@@ -111,13 +112,46 @@ int _strncmp(char *s1, char *s2, int len)
 	}
 	return (0);
 }
-/**
-int check_number(char *token_two)
+int check_number(char *token_two, unsigned int line_number)
 {
-	int n;
-	n = _atoi(token_two)
-	if (n < 0)
-	{ 
-	}
+	unsigned int i;
+	int flag;
+	int number;
 
-}**/
+	for (i = 0; token_two[i] != '\0'; i++)
+	{
+		if (token_two[i] >= 48 || token_two[i] <= 57)
+		{
+			flag = 1;
+		}
+		else
+		{
+			flag = 0;
+		}
+	}
+	if (flag == 1)
+	{
+		number = _atoi(token_two);
+	}
+	if (flag == 0)
+	{
+		fprintf(stderr, "L%i: usage: push integer\n", line_number);
+		free(stainst.stack);
+		exit(EXIT_FAILURE);
+	}
+return (number);
+}
+void free_memory(stack_t **stack)
+{
+	stack_t *aux = NULL;
+	stack_t *aux_two = NULL;
+
+	aux = *stack;
+
+	while (aux != NULL)
+	{
+		aux_two = aux->next;
+		free(aux);
+		aux = aux_two;
+	}
+}

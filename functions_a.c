@@ -9,16 +9,18 @@ stainst_t stainst;
 void push_function(stack_t **stack, unsigned int line_number)
 {
     stack_t *new = NULL;
+    (void) line_number;
 
     if (!stack)
     {
-        printf("L%i: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
+        free_memory(stack);
     }
     new = malloc(sizeof(stack_t));
     if (!new)
     {
-        printf("Error: malloc failed\n");
+        fprintf(stderr,"Error: malloc failed\n");
+        free_memory(stack);
         exit(EXIT_FAILURE);
     }
     new->n = stainst.number;
@@ -58,7 +60,8 @@ void pint_function(stack_t **stack, unsigned int line_number)
 
     if (!stack)
     {
-        printf("L%i: can't pint, stack empty", line_number);
+        fprintf(stderr, "L%i: can't pint, stack empty", line_number);
+        /**free_memory(stack);**/
         exit(EXIT_FAILURE);
     }
     aux = *stack;
@@ -76,7 +79,8 @@ void pop_function(stack_t **stack, unsigned int line_number)
 
     if (!stack || !*stack)
     {
-        printf("L%i: can't pop an empty stack", line_number);
+        fprintf(stderr, "L%i: can't pop an empty stack", line_number);
+        /**free_memory(stack);**/
         exit(EXIT_FAILURE);
     }
     aux = *stack;
@@ -89,7 +93,8 @@ void swap_function(stack_t **stack, unsigned int line_number)
 
     if (!stack || !*stack || !(*stack)->next)
     {
-        printf("L%i: can't swap, stack too short\n", line_number);
+        fprintf(stderr, "L%i: can't swap, stack too short\n", line_number);
+        /**free_memory(stack);**/
         exit(EXIT_FAILURE);
     }
     aux = *stack;

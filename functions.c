@@ -3,7 +3,7 @@ stainst_t stainst;
 void functions(char *token, char *token_two, stack_t **stack, unsigned int line_number)
 {
     unsigned int i = 0;
-    unsigned int entero;
+    int number;
 
     instruction_t op_func[] = {
         {"push", push_function},
@@ -27,8 +27,8 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
     };
     if (token_two != NULL)
     {
-        entero = _atoi(token_two);
-        stainst.number = entero;
+        number = check_number(token_two, line_number);
+        stainst.number = number;
     }
     while (op_func[i].opcode != NULL)
 	{
@@ -37,9 +37,16 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
             {
 			    op_func[i].f(stack, line_number);
             }
+        else if (op_func[i].opcode == NULL)
+        {
+            fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
+            free(stack);
+            free(token);
+            free(token_two);
+            exit(EXIT_FAILURE);
+        }
 		i++;
     }
-    return;
 }
 void stack_init(stack_t **head)
 {
