@@ -17,6 +17,8 @@ void open_file(char *argv[], stack_t **stack)
     }
     while ((n = getline(&buffer, &size, fp)) != -1)
     {
+        token = NULL;
+        token_two = NULL;
         while(buffer[0] == 32)
         {
             buffer++;
@@ -27,13 +29,13 @@ void open_file(char *argv[], stack_t **stack)
         token_two = strtok(NULL, DEL);
         line_number++;
         functions(token, token_two, stack, line_number);
-        token = NULL;
-        token_two = NULL;
-        /**free(buffer);**/
+        /**free(token);
+        free(token_two);**/
+        
     }
     free_memory(stack);
-    fclose(fp);
     free(buffer);
-    free(token);
-    free(token_two);
+    fclose(fp);
+    /**free(token);
+    free(token_two);**/
 }
