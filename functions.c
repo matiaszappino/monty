@@ -1,10 +1,9 @@
 #include "monty.h"
-void functions(char *token, char *token_two, char *buffer, stack_t **stack)
+void functions(char *token, char *token_two, stack_t **stack)
 {
     unsigned int i = 0;
     unsigned int line_number;
     /**int status;**/
-    char *tokenword = NULL;
 
     
     /**printf("Token %s\n", token);

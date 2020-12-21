@@ -8,7 +8,6 @@ void open_file(char *argv[], stack_t **stack)
     /**char **tokens = NULL;**/
     char *token = NULL;
     char *token_two = NULL;
-    unsigned int i = 0;
 
     fp = fopen(argv[1], "r");
     if (fp == NULL)
@@ -31,7 +30,7 @@ void open_file(char *argv[], stack_t **stack)
             printf("This is tokens[i]: %s\n", tokens[i]);
             i++;
             token = strtok(NULL, DEL);**/
-        functions(token, token_two, buffer, stack);
+        functions(token, token_two, stack);
         token = NULL;
         token_two = NULL;
     }

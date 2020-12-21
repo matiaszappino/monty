@@ -8,7 +8,6 @@
 void push_function(stack_t **stack, unsigned int line_number)
 {
     stack_t *new = NULL;
-    stack_t *aux = NULL;
 
     if (!stack || !line_number)
     {
@@ -35,8 +34,8 @@ void push_function(stack_t **stack, unsigned int line_number)
  */
 void pall_function(stack_t **stack, unsigned int line_number) 
 {
-    (void) line_number;
     stack_t *aux;
+    (void) line_number;
 
     if (!stack)
         return;
@@ -101,42 +100,4 @@ void swap_function(stack_t **stack, unsigned int line_number)
         aux->next->prev = *stack;
     aux->next = *stack;
     *stack = (*stack)->prev;
-}
-void add_function(stack_t **stack, unsigned int line_number)
-{
-    stack_t *aux;
-
-    if (!stack || !*stack || !(*stack)->next)
-    {
-        printf("L%i: can't add, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
-    aux = *stack;
-    aux = (*stack)->next;
-    (*stack)->n = (((*stack)->n) + (aux->n));
-    (*stack)->next = (*stack)->next->next;
-    (*stack)->next->prev = *stack;
-    free (aux);
-}
-void nop_function(stack_t **stack, unsigned int line_number)
-{
-    (void)*stack;
-    (void)line_number;
-    return;
-}
-void sub_function(stack_t **stack, unsigned int line_number)
-{
-     stack_t *aux;
-
-    if (!stack || !*stack || !(*stack)->next)
-    {
-        printf("L%i: can't sub, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
-    aux = *stack;
-    aux = (*stack)->next;
-    (*stack)->n = ((aux->n) - ((*stack)->n));
-    (*stack)->next = (*stack)->next->next;
-    (*stack)->next->prev = *stack;
-    free (aux);
 }
