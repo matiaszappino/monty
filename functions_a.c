@@ -71,6 +71,12 @@ void pint_function(stack_t **stack, unsigned int line_number)
     aux = *stack;
     printf("%i\n", aux->n);
 }
+/**
+ * pop_function - function that prints all the elements of a dlistint_t list.
+ * @stack: stack
+ * @line_number: line_number
+ * Return: The number of nodes.
+ */
 void pop_function(stack_t **stack, unsigned int line_number)
 {
     stack_t *aux;
