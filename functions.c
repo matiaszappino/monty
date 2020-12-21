@@ -14,9 +14,9 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
         {"add", add_function},
         {"nop", nop_function},
         {"sub", sub_function},
-        /**{"div", div_function},
+        {"div", div_function},
         {"mul", mul_function},
-        {"mod", mod_function},
+        /**{"mod", mod_function},
         {"pchar", pchar_function},
         {"pstr", pstr_function},
         {"rotl", rotl_function},
@@ -25,7 +25,6 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
         {"queue", queue_function},**/
         {NULL, NULL}
     };
-
     if (token_two != NULL)
     {
         entero = _atoi(token_two);
@@ -37,10 +36,6 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
 		    (_strlen(token) == _strlen(op_func[i].opcode)))
             {
 			    op_func[i].f(stack, line_number);
-			    /**if (status != 0)
-				    return (0);
-			    else if (status == 1)
-				    return (1);**/
             }
 		i++;
     }

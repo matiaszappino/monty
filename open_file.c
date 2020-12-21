@@ -15,14 +15,8 @@ void open_file(char *argv[], stack_t **stack)
         printf("Error: Can't open file %s\n", argv[1]);
         exit(EXIT_FAILURE);
     }
-
-    /*tokens = malloc(sizeof(char *) * BUFFSIZE);
-	if (!tokens)
-	    return;**/
-
     while ((n = getline(&buffer, &size, fp)) != -1)
     {
-        /**printf("This is buffer: %s\n", buffer);**/
         while(buffer[0] == 32)
         {
             buffer++;
