@@ -1,4 +1,5 @@
 #include "monty.h"
+stainst_t stainst;
 /**
  * add_dnodeint - adds a new node at the beginning of a dlistint_t list.
  * @head: head
@@ -9,9 +10,9 @@ void push_function(stack_t **stack, unsigned int line_number)
 {
     stack_t *new = NULL;
 
-    if (!stack || !line_number)
+    if (!stack)
     {
-        printf("L%u: usage: push integer\n", line_number);
+        printf("L%i: usage: push integer\n", line_number);
         exit(EXIT_FAILURE);
     }
     new = malloc(sizeof(stack_t));
@@ -20,7 +21,7 @@ void push_function(stack_t **stack, unsigned int line_number)
         printf("Error: malloc failed\n");
         exit(EXIT_FAILURE);
     }
-    new->n = line_number;
+    new->n = stainst.number;
     new->next = *stack;
     new->prev = NULL;
     if (new->next != NULL)

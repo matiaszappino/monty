@@ -1,5 +1,4 @@
 #include "monty.h"
-stainst_t stainst;
 /**
  * _atoi - transform a char in an integer
  * @s: string to convert in integers
@@ -112,8 +111,13 @@ int _strncmp(char *s1, char *s2, int len)
 	}
 	return (0);
 }
-void stack_init(stack_t **head)
+/**
+int check_number(char *token_two)
 {
-	*head = NULL;
-	stainst.stack = head;
-}
+	int n;
+	n = _atoi(token_two)
+	if (n < 0)
+	{ 
+	}
+
+}**/

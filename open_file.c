@@ -5,7 +5,7 @@ void open_file(char *argv[], stack_t **stack)
     size_t size = 0;
     ssize_t n;
     FILE *fp;
-    /**char **tokens = NULL;**/
+    unsigned int line_number = 0;
     char *token = NULL;
     char *token_two = NULL;
 
@@ -23,14 +23,16 @@ void open_file(char *argv[], stack_t **stack)
     while ((n = getline(&buffer, &size, fp)) != -1)
     {
         /**printf("This is buffer: %s\n", buffer);**/
+        while(buffer[0] == 32)
+        {
+            buffer++;
+        }
+        if (buffer[0] == '\n' || buffer[0] == '\0')
+            continue;
         token = strtok(buffer, DEL);
         token_two = strtok(NULL, DEL);
-        /**printf("This is token: %s\n", token);
-            tokens[i] = token;
-            printf("This is tokens[i]: %s\n", tokens[i]);
-            i++;
-            token = strtok(NULL, DEL);**/
-        functions(token, token_two, stack);
+        line_number++;
+        functions(token, token_two, stack, line_number);
         token = NULL;
         token_two = NULL;
     }

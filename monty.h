@@ -50,11 +50,12 @@ typedef struct stainst_s
 {
         stack_t **stack;
         instruction_t **inst;
+        int number;
 } stainst_t;
 extern stainst_t stainst;
 
 void open_file(char *argv[], stack_t **stack);
-void functions(char *token, char *token_two, stack_t **stack);
+void functions(char *token, char *token_two, stack_t **stack, unsigned int line_number);
 void push_function(stack_t **stack, unsigned int line_number);
 void pall_function(stack_t **stack, unsigned int line_number);
 void pint_function(stack_t **stack, unsigned int line_number);

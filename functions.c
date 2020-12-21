@@ -1,14 +1,9 @@
 #include "monty.h"
-void functions(char *token, char *token_two, stack_t **stack)
+stainst_t stainst;
+void functions(char *token, char *token_two, stack_t **stack, unsigned int line_number)
 {
     unsigned int i = 0;
-    unsigned int line_number;
-    /**int status;**/
-
-    
-    /**printf("Token %s\n", token);
-    printf("Token %s\n", token_two);
-    printf("buffer %s\n", buffer);**/
+    unsigned int entero;
 
     instruction_t op_func[] = {
         {"push", push_function},
@@ -31,13 +26,11 @@ void functions(char *token, char *token_two, stack_t **stack)
         {NULL, NULL}
     };
 
-    /**printf("Token %s\n", token);
-    printf("Token %s\n", token_two);**/
-
     if (token_two != NULL)
-        line_number = _atoi(token_two);
-
-    /**printf("line_number %i\n", line_number);**/
+    {
+        entero = _atoi(token_two);
+        stainst.number = entero;
+    }
     while (op_func[i].opcode != NULL)
 	{
 		if (_strcmp(token, op_func[i].opcode) == 0 &&
@@ -51,8 +44,10 @@ void functions(char *token, char *token_two, stack_t **stack)
             }
 		i++;
     }
-    /**free(token);**/
-    /**free(token_two);**/
-    /**free(buffer);**/
     return;
+}
+void stack_init(stack_t **head)
+{
+	*head = NULL;
+	stainst.stack = head;
 }
