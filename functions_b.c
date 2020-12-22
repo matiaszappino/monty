@@ -45,6 +45,7 @@ void nop_function(stack_t **stack, unsigned int line_number)
 void sub_function(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = NULL;
+	stack_t *aux_two = NULL;
 
 	if (!stack || !(*stack)->next)
 	{
@@ -52,10 +53,11 @@ void sub_function(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
-	aux = (*stack)->next;
-	(*stack)->n = ((aux->n) - ((*stack)->n));
-	(*stack)->next = (*stack)->next->next;
-	(*stack)->next->prev = *stack;
+	aux_two = *stack;
+	aux_two = aux_two->next;
+	aux_two->n = ((aux->n) - (aux_two->n));
+	*stack = aux_two;
+	aux_two->prev = NULL;
 	free(aux);
 }
 /**
@@ -67,6 +69,7 @@ void sub_function(stack_t **stack, unsigned int line_number)
 void div_function(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = NULL;
+	stack_t *aux_two = NULL;
 
 	if (!stack || !(*stack)->next)
 	{
@@ -74,10 +77,11 @@ void div_function(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 	aux = *stack;
-	aux = (*stack)->next;
-	(*stack)->n = (((*stack)->n) / (aux->n));
-	(*stack)->next = (*stack)->next->next;
-	(*stack)->next->prev = *stack;
+	aux_two = *stack;
+	aux_two = aux_two->next;
+	aux_two->n = ((aux->n) / (aux_two->n));
+	*stack = aux_two;
+	aux_two->prev = NULL;
 	free(aux);
 }
 /**
@@ -89,6 +93,7 @@ void div_function(stack_t **stack, unsigned int line_number)
 void mul_function(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = NULL;
+	stack_t *aux_two = NULL;
 
 	if (!stack || !(*stack)->next)
 	{
@@ -96,9 +101,10 @@ void mul_function(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
-	aux = (*stack)->next;
-	(*stack)->n = (((*stack)->n) * (aux->n));
-	(*stack)->next = (*stack)->next->next;
-	(*stack)->next->prev = *stack;
+	aux_two = *stack;
+	aux_two = aux_two->next;
+	aux_two->n = ((aux->n) * (aux_two->n));
+	*stack = aux_two;
+	aux_two->prev = NULL;
 	free(aux);
 }
