@@ -96,9 +96,25 @@ void pstr_function(stack_t **stack, unsigned int line_number)
  */
 void rotl_function(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
-    return;
+    stack_t *aux = NULL;
+    stack_t *aux_two = NULL;
+    (void) line_number;
+
+    if (!*stack || !(*stack)->next)
+	{
+		return;
+	}
+    aux_two = *stack;
+	aux = (*stack)->next;
+    aux->prev = NULL;
+     while (aux_two->next)
+    {
+        aux_two = aux_two->next;
+    }
+    aux_two->next = *stack;
+    (*stack)->next = NULL;
+    (*stack)->prev = aux_two;
+    *stack = aux;
 }
 /**
  * add_function - adds a new node at the beginning of a dlistint_t list.
