@@ -124,7 +124,19 @@ void rotl_function(stack_t **stack, unsigned int line_number)
  */
 void rotr_function(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
-    return;
+    stack_t *aux = NULL;
+    (void) line_number;
+
+    if (!*stack || !(*stack)->next)
+	{
+		return;
+	}
+    aux = *stack;
+    while (aux->next)
+		aux = aux->next;
+	aux->next = *stack;
+	aux->prev->next = NULL;
+	aux->prev = NULL;
+	(*stack)->prev = aux;
+	(*stack) = aux;
 }
