@@ -75,15 +75,14 @@ void pstr_function(stack_t **stack, unsigned int line_number)
     aux = *stack;
     while (aux->next)
     {
-        if (aux->n == 0)
+        if (aux->n != 0 && ((*stack)->n >= 32 && (*stack)->n <= 126))
         {
-           break;
-        }
-        if (((*stack)->n >= 32 && (*stack)->n <= 47) || ((*stack)->n >= 49 && (*stack)->n <= 126))
-        {
-            
-	        putchar(aux->n);
+            putchar(aux->n);
             aux = aux->next;
+        }
+        else
+        {
+            break;
         }
     }
     putchar('\n');
