@@ -3,7 +3,6 @@ stainst_t stainst;
 void functions(char *token, char *token_two, stack_t **stack, unsigned int line_number)
 {
     unsigned int i = 0;
-    int number;
 
     instruction_t op_func[] = {
         {"push", push_function},
@@ -27,8 +26,7 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
     };
     if (token_two != NULL)
     {
-        number = check_number(token_two, line_number);
-        stainst.number = number;
+        check_number(token_two, line_number);
     }
     while (op_func[i].opcode != NULL)
 	{

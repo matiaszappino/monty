@@ -112,33 +112,43 @@ int _strncmp(char *s1, char *s2, int len)
 	}
 	return (0);
 }
-int check_number(char *token_two, unsigned int line_number)
+void check_number(char *token_two, unsigned int line_number)
 {
 	unsigned int i;
 	int flag;
 	int number;
 
-	for (i = 0; token_two[i] != '\0'; i++)
+	if (token_two)
 	{
-		if (token_two[i] < 48 || token_two[i] > 57)
+		for (i = 0; token_two[i] != '\0'; i++)
 		{
-			flag = 1;
+			if (token_two[i] >= 48 && token_two[i] <= 57)
+			{
+				flag = 1;
+			}
+			else
+			{
+				flag = 2;
+				break;
+			}
 		}
-		else
+		if (flag == 1)
 		{
-			flag = 2;
+			number = _atoi(token_two);
+			stainst.number = number;
+			return;
+		}
+		if (flag == 2)
+		{
+			fprintf(stderr, "L%i: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
 		}
 	}
-	if (flag == 1)
+	else
 	{
-		number = _atoi(token_two);
-	}
-	if (flag == 2)
-	{
-		fprintf(stderr, "L%i: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-return (number);
 }
 void free_memory(stack_t **stack)
 {
