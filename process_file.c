@@ -25,7 +25,10 @@ void process_file(stack_t **stack, FILE *fp)
 			buffer++;
 		}
 		if (buffer[0] == '\n' || buffer[0] == '\0')
+		{
+			line_number++;
 			continue;
+		}
 		token = strtok(buffer, DEL);
 		token_two = strtok(NULL, DEL);
 		line_number++;
