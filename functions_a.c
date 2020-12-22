@@ -20,7 +20,7 @@ void push_function(stack_t **stack, unsigned int line_number)
 	}
 	if (stainst.token == NULL || stack == NULL)
 	{
-		fprintf(stderr, "L%i: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	new->n = stainst.number;
@@ -60,7 +60,7 @@ void pint_function(stack_t **stack, unsigned int line_number)
 
 	if (!stack)
 	{
-		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
@@ -78,7 +78,7 @@ void pop_function(stack_t **stack, unsigned int line_number)
 
 	if (!stack)
 	{
-		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
@@ -97,7 +97,7 @@ void swap_function(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%i: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;

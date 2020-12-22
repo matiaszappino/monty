@@ -17,6 +17,8 @@ void process_file(stack_t **stack, FILE *fp)
 
 	while ((n = getline(&buffer, &size, fp)) != EOF)
 	{
+		token = NULL;
+		token_two = NULL;
 		while (buffer[0] == 32)
 		{
 			free_count++;
@@ -27,8 +29,15 @@ void process_file(stack_t **stack, FILE *fp)
 		token = strtok(buffer, DEL);
 		token_two = strtok(NULL, DEL);
 		line_number++;
+		/**printf("Token %s:\n", token);
+		printf("Token_two %s:\n", token_two);**/
 		if ((strcmp(token, "push") == 0) && token_two != NULL)
 			check_number(token_two, line_number);
+		else if ((strcmp(token, "push")) == 0 && token_two == NULL)
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
 		if (token)
 			functions(token, stack, line_number);
 		/**if (strlen(token) != 0 && token[0] != '#')

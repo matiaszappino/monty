@@ -1,16 +1,10 @@
 push 1
 push 2
+pall
 push 3
+push 4
 push 6
 push 8
 pall
-    # hola como estas
-pop
-mul
-push 
-         pall
- div 
-
-
-
-    pall
+swap
+pall

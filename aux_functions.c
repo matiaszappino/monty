@@ -12,7 +12,9 @@ void check_number(char *token_two, unsigned int line_number)
 	int flag;
 	int number;
 
-	if (token_two)
+	/**printf("Token_two en check %s:\n", token_two);**/
+
+	if (token_two != NULL)
 	{
 		for (i = 0; token_two[i] != '\0'; i++)
 		{
@@ -34,7 +36,7 @@ void check_number(char *token_two, unsigned int line_number)
 		}
 		else
 		{
-			fprintf(stderr, "L%i: usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}
 	}
