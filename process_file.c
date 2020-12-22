@@ -31,15 +31,6 @@ void process_file(stack_t **stack, FILE *fp)
 		token_two = strtok(NULL, DEL);
 		line_number++;
 		if_statements(stack, token, token_two, line_number);
-		/**if ((strcmp(token, "push") == 0) && token_two != NULL)
-			check_number(token_two, line_number);
-		else if ((strcmp(token, "push")) == 0 && token_two == NULL)
-		{
-			fprintf(stderr, "L%u: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
-		}
-		if (token)
-			functions(token, stack, line_number);**/
 	}
 	while (free_count > 0)
 	{
