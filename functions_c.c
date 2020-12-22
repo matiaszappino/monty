@@ -72,15 +72,20 @@ void pstr_function(stack_t **stack, unsigned int line_number)
 	{
 		exit(EXIT_FAILURE);
 	}
-    if (((*stack)->n >= 32 && (*stack)->n <= 47) || ((*stack)->n >= 49 && (*stack)->n <= 126))
+    aux = *stack;
+    while (aux->next)
     {
-        aux = *stack;
-	    putchar(aux->n);
+        if (((*stack)->n >= 32 && (*stack)->n <= 48) || ((*stack)->n >= 49 && (*stack)->n <= 126))
+        {
+            if (aux->n == 0)
+            {
+                break;
+            }
+	        putchar(aux->n);
+            aux = aux->next;
+        }
     }
-	else
-    {
-		exit(EXIT_FAILURE);
-    }
+    putchar('\n');
 }
 /**
  * add_function - adds a new node at the beginning of a dlistint_t list.
