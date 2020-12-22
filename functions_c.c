@@ -74,7 +74,7 @@ void pstr_function(stack_t **stack, unsigned int line_number)
 		return;
 	}
     aux = *stack;
-    while (aux->next)
+    while (aux)
     {
         if (aux->n != 0 && isascii(aux->n))
         {
