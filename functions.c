@@ -34,7 +34,6 @@ void functions(char *token, stack_t **stack, unsigned int line_number)
         i++;
     }
     fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
-    /**free_memory(stack);**/
     exit(EXIT_FAILURE);
 }
 

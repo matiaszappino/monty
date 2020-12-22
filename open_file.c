@@ -1,5 +1,5 @@
 #include "monty.h"
-void open_file(char *argv[], stack_t **stack)
+int open_file(char *argv[], stack_t **stack)
 {
     size_t size = 0;
     ssize_t n;
@@ -39,10 +39,6 @@ void open_file(char *argv[], stack_t **stack)
         token = strtok(buffer, DEL);
         token_two = strtok(NULL, DEL);
         line_number++;
-
-        printf("Token %s\n", token);
-        printf("Token 2 %s\n", token_two);
-
         if ((strcmp(token, "push") == 0) && token_two != NULL)
             check_number(token_two, line_number);
         if (strlen(token) != 0 && token[0] != '#')
@@ -56,5 +52,5 @@ void open_file(char *argv[], stack_t **stack)
     free_memory(stack);
     free(buffer);
     fclose(fp);
-    return;
+    return(EXIT_SUCCESS);
 }

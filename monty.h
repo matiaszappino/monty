@@ -54,7 +54,7 @@ typedef struct stainst_s
 } stainst_t;
 extern stainst_t stainst;
 
-void open_file(char *argv[], stack_t **stack);
+int open_file(char *argv[], stack_t **stack);
 void functions(char *token, stack_t **stack, unsigned int line_number);
 void push_function(stack_t **stack, unsigned int line_number);
 void pall_function(stack_t **stack, unsigned int line_number);
