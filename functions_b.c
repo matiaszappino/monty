@@ -86,9 +86,9 @@ void div_function(stack_t **stack, unsigned int line_number)
 	aux = *stack;
 	aux_two = *stack;
 	aux_two = aux_two->next;
-	aux_two->n = ((aux->n) / (aux_two->n));
-	*stack = aux_two;
+	aux_two->n = ((aux_two->n) / (aux->n));
 	aux_two->prev = NULL;
+	*stack = aux_two;
 	free(aux);
 }
 /**
