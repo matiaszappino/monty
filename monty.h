@@ -21,9 +21,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 /**
  * struct instruction_s - opcode and its function
@@ -35,22 +35,23 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
  * struct stainst_s - opcode and its function
  * @stack: double pointer to stack_t struct
  * @inst: double pointer to instruction_t struct
+ * @number: number
  *
  * Description: double pointers
  * for stack, queues, LIFO, FIFO Holberton project
  */
 typedef struct stainst_s
 {
-        stack_t **stack;
-        instruction_t **inst;
-        int number;
+	stack_t **stack;
+	instruction_t **inst;
+	int number;
 } stainst_t;
 extern stainst_t stainst;
 
@@ -66,7 +67,7 @@ void nop_function(stack_t **stack, unsigned int line_number);
 void sub_function(stack_t **stack, unsigned int line_number);
 void div_function(stack_t **stack, unsigned int line_number);
 void mul_function(stack_t **stack, unsigned int line_number);
-
+void process_file(stack_t **stack, FILE *fp_two);
 void stack_init(stack_t **head);
 void free_memory(stack_t **stack);
 void check_number(char *token_two, unsigned int line_number);
@@ -76,5 +77,4 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _strncmp(char *s1, char *s2, int len);
-
 #endif
