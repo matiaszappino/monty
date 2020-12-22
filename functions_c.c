@@ -70,6 +70,7 @@ void pstr_function(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !*stack)
 	{
+        putchar('\n');
 		exit(EXIT_FAILURE);
 	}
     aux = *stack;
