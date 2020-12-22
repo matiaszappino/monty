@@ -9,7 +9,7 @@
 #include <limits.h>
 #include <string.h>
 #define BUFFSIZE 1024
-#define DEL "\n \t\r"
+#define DEL " \n\t "
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -55,7 +55,7 @@ typedef struct stainst_s
 extern stainst_t stainst;
 
 void open_file(char *argv[], stack_t **stack);
-void functions(char *token, char *token_two, stack_t **stack, unsigned int line_number);
+void functions(char *token, stack_t **stack, unsigned int line_number);
 void push_function(stack_t **stack, unsigned int line_number);
 void pall_function(stack_t **stack, unsigned int line_number);
 void pint_function(stack_t **stack, unsigned int line_number);

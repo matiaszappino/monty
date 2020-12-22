@@ -1,6 +1,6 @@
 #include "monty.h"
 stainst_t stainst;
-void functions(char *token, char *token_two, stack_t **stack, unsigned int line_number)
+void functions(char *token, stack_t **stack, unsigned int line_number)
 {
     unsigned int i = 0;
 
@@ -24,25 +24,18 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
         {"queue", queue_function},**/
         {NULL, NULL}
     };
-    if (token_two != NULL)
-    {
-        check_number(token_two, line_number);
-    }
     while (op_func[i].opcode != NULL)
 	{
-		if (_strcmp(token, op_func[i].opcode) == 0)
+		if (strcmp(token, op_func[i].opcode) == 0)
             {
 			    op_func[i].f(stack, line_number);
                 return;
             }
         i++;
     }
-    if (_strlen(token) != 0 && token[0] != '#')
-    {
-       fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
-       free_memory(stack);
-       exit(EXIT_FAILURE);
-    }
+    fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
+    /**free_memory(stack);**/
+    exit(EXIT_FAILURE);
 }
 
 void stack_init(stack_t **head)

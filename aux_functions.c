@@ -134,11 +134,11 @@ void check_number(char *token_two, unsigned int line_number)
 		}
 		if (flag == 1)
 		{
-			number = _atoi(token_two);
+			number = atoi(token_two);
 			stainst.number = number;
 			return;
 		}
-		if (flag == 2)
+		else
 		{
 			fprintf(stderr, "L%i: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
