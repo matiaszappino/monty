@@ -65,9 +65,22 @@ void pchar_function(stack_t **stack, unsigned int line_number)
  */
 void pstr_function(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
-    return;
+    stack_t *aux = NULL;
+    (void) line_number;
+
+	if (!stack || !*stack)
+	{
+		exit(EXIT_FAILURE);
+	}
+    if (((*stack)->n >= 32 && (*stack)->n <= 47) || ((*stack)->n >= 49 && (*stack)->n <= 126))
+    {
+        aux = *stack;
+	    putchar(aux->n);
+    }
+	else
+    {
+		exit(EXIT_FAILURE);
+    }
 }
 /**
  * add_function - adds a new node at the beginning of a dlistint_t list.
