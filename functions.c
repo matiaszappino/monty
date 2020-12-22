@@ -32,22 +32,22 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
     }
     while (op_func[i].opcode != NULL)
 	{
-		if (_strcmp(token, op_func[i].opcode) == 0 &&
-		    (_strlen(token) == _strlen(op_func[i].opcode)))
+		if (_strcmp(token, op_func[i].opcode) == 0/** &&
+		    (_strlen(token) == _strlen(op_func[i].opcode))**/)
             {
 			    op_func[i].f(stack, line_number);
+                return;
             }
-        else if (op_func[i].opcode == NULL)
-        {
-            fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
-            free(stack);
-            free(token);
-            free(token_two);
-            exit(EXIT_FAILURE);
-        }
-		i++;
+        i++;
+    }
+    if (_strlen(token) != 0 && token[0] != '#')
+    {
+       fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
+       free_memory(stack);
+       exit(EXIT_FAILURE);
     }
 }
+
 void stack_init(stack_t **head)
 {
 	*head = NULL;

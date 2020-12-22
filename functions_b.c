@@ -1,12 +1,12 @@
 #include "monty.h"
 void add_function(stack_t **stack, unsigned int line_number)
 {
-    stack_t *aux;
+    stack_t *aux = NULL;
 
     if (!stack || !*stack || !(*stack)->next)
     {
         fprintf(stderr, "L%i: can't add, stack too short", line_number);
-        /**free_memory(stack);**/
+        free_memory(stack);
         exit(EXIT_FAILURE);
     }
     aux = *stack;
@@ -24,12 +24,12 @@ void nop_function(stack_t **stack, unsigned int line_number)
 }
 void sub_function(stack_t **stack, unsigned int line_number)
 {
-     stack_t *aux;
+     stack_t *aux = NULL;
 
     if (!stack || !*stack || !(*stack)->next)
     {
         fprintf(stderr, "L%i: can't sub, stack too short", line_number);
-        /**free_memory(stack);**/
+        free_memory(stack);
         exit(EXIT_FAILURE);
     }
     aux = *stack;
@@ -41,12 +41,12 @@ void sub_function(stack_t **stack, unsigned int line_number)
 }
 void div_function(stack_t **stack, unsigned int line_number)
 {
-    stack_t *aux;
+    stack_t *aux = NULL;
 
     if (!stack || !*stack || !(*stack)->next)
     {
         fprintf(stderr, "L%i: can't add, stack too short", line_number);
-        /**free_memory(stack);**/
+        free_memory(stack);
         exit(EXIT_FAILURE);
     }
     aux = *stack;
@@ -58,12 +58,12 @@ void div_function(stack_t **stack, unsigned int line_number)
 }
 void mul_function(stack_t **stack, unsigned int line_number)
 {
-    stack_t *aux;
+    stack_t *aux = NULL;
 
     if (!stack || !*stack || !(*stack)->next)
     {
         fprintf(stderr, "L%i: can't add, stack too short", line_number);
-        /**free_memory(stack);**/
+        free_memory(stack);
         exit(EXIT_FAILURE);
     }
     aux = *stack;

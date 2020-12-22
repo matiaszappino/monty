@@ -10,6 +10,5 @@ int main(int argc, char *argv[])
         exit(EXIT_FAILURE);
     }
     open_file(argv, &head);
-    /**free_memory(stainst.stack);**/
-    return (0);
+    exit(EXIT_SUCCESS);
 }
