@@ -1,6 +1,6 @@
 push 1
 push 2
 push 2
-push 0
-div
+push 6
+mul
 pall
