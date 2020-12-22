@@ -3,4 +3,13 @@ push 2
 
 
 
-hola
+ push 4
+           push 6
+
+
+
+           push 7
+pall
+push
+push
+pall

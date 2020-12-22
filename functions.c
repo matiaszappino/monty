@@ -45,10 +45,10 @@ void functions(char *token, stack_t **stack, unsigned int line_number)
 		i++;
 	}
 	if (strlen(token) != 0 && token[0] != '#')
-		{
-			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
-			exit(EXIT_FAILURE);
-		}
+	{
+		fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
+		exit(EXIT_FAILURE);
+	}
 }
 /**
  * stack_init - function that initialates the stack

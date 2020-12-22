@@ -72,6 +72,7 @@ void process_file(stack_t **stack, FILE *fp_two);
 void stack_init(stack_t **head);
 void free_memory(stack_t **stack);
 void check_number(char *token_two, unsigned int line_number);
+void if_statements(stack_t **stack, char *token, char *token_two, unsigned int line_number);
 int _atoi(char *s);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);

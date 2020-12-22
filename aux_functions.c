@@ -12,8 +12,6 @@ void check_number(char *token_two, unsigned int line_number)
 	int flag;
 	int number;
 
-	/**printf("Token_two en check %s:\n", token_two);**/
-
 	if (token_two != NULL)
 	{
 		for (i = 0; token_two[i] != '\0'; i++)
