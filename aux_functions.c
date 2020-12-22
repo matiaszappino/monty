@@ -120,23 +120,22 @@ int check_number(char *token_two, unsigned int line_number)
 
 	for (i = 0; token_two[i] != '\0'; i++)
 	{
-		if (token_two[i] >= 48 || token_two[i] <= 57)
+		if (token_two[i] < 48 || token_two[i] > 57)
 		{
 			flag = 1;
 		}
 		else
 		{
-			flag = 0;
+			flag = 2;
 		}
 	}
 	if (flag == 1)
 	{
 		number = _atoi(token_two);
 	}
-	if (flag == 0)
+	if (flag == 2)
 	{
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
-		free(stainst.stack);
 		exit(EXIT_FAILURE);
 	}
 return (number);

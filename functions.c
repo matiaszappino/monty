@@ -32,8 +32,7 @@ void functions(char *token, char *token_two, stack_t **stack, unsigned int line_
     }
     while (op_func[i].opcode != NULL)
 	{
-		if (_strcmp(token, op_func[i].opcode) == 0/** &&
-		    (_strlen(token) == _strlen(op_func[i].opcode))**/)
+		if (_strcmp(token, op_func[i].opcode) == 0)
             {
 			    op_func[i].f(stack, line_number);
                 return;
