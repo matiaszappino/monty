@@ -52,6 +52,7 @@ typedef struct stainst_s
 	stack_t **stack;
 	instruction_t **inst;
 	int number;
+	char *token;
 } stainst_t;
 extern stainst_t stainst;
 

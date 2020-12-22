@@ -37,13 +37,18 @@ void functions(char *token, stack_t **stack, unsigned int line_number)
 	{
 		if (strcmp(token, op_func[i].opcode) == 0)
 		{
+			stainst.token = token;
 			op_func[i].f(stack, line_number);
+			stainst.token = NULL;
 			return;
 		}
 		i++;
 	}
-	fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
-	exit(EXIT_FAILURE);
+	if (strlen(token) != 0 && token[0] != '#')
+		{
+			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
+			exit(EXIT_FAILURE);
+		}
 }
 /**
  * stack_init - function that initialates the stack

@@ -13,7 +13,6 @@ int open_file(char *argv[], stack_t **stack)
 	if (!argv[1])
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		free_memory(stack);
 		exit(EXIT_FAILURE);
 	}
 	fp = fopen(argv[1], "r");
@@ -22,6 +21,7 @@ int open_file(char *argv[], stack_t **stack)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+	/**atexit(free_memory);**/
 	process_file(stack, fp);
 	free_memory(stack);
 	free(buffer);

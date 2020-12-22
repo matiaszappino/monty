@@ -29,8 +29,14 @@ void process_file(stack_t **stack, FILE *fp)
 		line_number++;
 		if ((strcmp(token, "push") == 0) && token_two != NULL)
 			check_number(token_two, line_number);
-		if (strlen(token) != 0 && token[0] != '#')
+		if (token)
 			functions(token, stack, line_number);
+		/**if (strlen(token) != 0 && token[0] != '#')
+		{
+			fprintf(stderr, "L%i: unknown instruction %s\n", line_number, token);
+			exit(EXIT_FAILURE);
+		}**/
+		/**functions(token, stack, line_number);**/
 	}
 	while (free_count > 0)
 	{
