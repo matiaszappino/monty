@@ -1,5 +1,5 @@
 push -1
-
-
-    
-        pchar
+push 2
+pall
+add
+pall
