@@ -66,7 +66,7 @@ void div_function(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack)->next)
 	{
-	fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+	fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 	exit(EXIT_FAILURE);
 	}
 	aux = *stack;
@@ -88,7 +88,7 @@ void mul_function(stack_t **stack, unsigned int line_number)
 
 	if (!stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;
