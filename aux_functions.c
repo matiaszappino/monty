@@ -18,7 +18,7 @@ void check_number(char *token_two, unsigned int line_number)
 	{
 		for (i = 0; token_two[i] != '\0'; i++)
 		{
-			if (token_two[i] >= 48 && token_two[i] <= 57)
+			if ((token_two[i] >= 48 && token_two[i] <= 57) || token_two[i] == 45)
 			{
 				flag = 1;
 			}
