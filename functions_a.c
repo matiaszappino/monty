@@ -18,7 +18,7 @@ void push_function(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (stainst.token == NULL || !stack )
+	if (stainst.token == NULL || !stack)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
